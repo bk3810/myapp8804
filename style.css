@@ -1,25 +1,50 @@
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --container-bg: #ffffff;
+    --primary-color: #1877f2;
+    --primary-hover: #166fe5;
+    --number-bg: #f0f2f5;
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --number-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme {
+    --bg-color: #18191a;
+    --text-color: #e4e6eb;
+    --container-bg: #242526;
+    --primary-color: #2d88ff;
+    --primary-hover: #3a8fff;
+    --number-bg: #3a3b3c;
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    --number-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: var(--container-bg);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
 }
 
 h1 {
     font-size: 2.5em;
-    color: #1877f2;
+    color: var(--primary-color);
     margin-bottom: 30px;
 }
 
@@ -34,18 +59,19 @@ h1 {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #f0f2f5;
+    background-color: var(--number-bg);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.8em;
     font-weight: bold;
-    color: #1877f2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--primary-color);
+    box-shadow: var(--number-shadow);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 #generate-button {
-    background-color: #1877f2;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 15px 30px;
@@ -53,10 +79,31 @@ h1 {
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--number-shadow);
 }
 
 #generate-button:hover {
-    background-color: #166fe5;
+    background-color: var(--primary-hover);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: var(--text-color);
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(128, 128, 128, 0.1);
 }
